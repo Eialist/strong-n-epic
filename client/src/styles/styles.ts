@@ -16,12 +16,10 @@ export const Form = styled.form`
 `;
 
 export const Ul = styled.ul`
-listStyle: "none",
-display: "flex",
-flexDirection: "column",
-gap: "1em",
-marginTop: "0",
-fontSize: "0.6em"
+  listStyle: "none",
+  display: "flex",
+  flexDirection: "column",
+  gap: "1em",
+  marginTop: "0",
+  fontSize: "0.6em"
 `;
-
-

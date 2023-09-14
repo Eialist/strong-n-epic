@@ -6,7 +6,11 @@ type PopUpProps = {
   insertText: string | JSX.Element;
 };
 
-const PopUpComponent: React.FC<PopUpProps> = ({ onOkClick, onCancelClick, insertText }) => {
+const PopUpComponent: React.FC<PopUpProps> = ({
+  onOkClick,
+  onCancelClick,
+  insertText,
+}) => {
   return (
     <div className="modal" style={{ display: "block" }}>
       <div className="modal-dialog">
@@ -15,10 +19,16 @@ const PopUpComponent: React.FC<PopUpProps> = ({ onOkClick, onCancelClick, insert
             <div>{insertText}</div>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" onClick={() => onCancelClick()}>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => onCancelClick()}>
               Cancel
             </button>
-            <button type="button" className="btn btn-primary" onClick={() => onOkClick()}>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => onOkClick()}>
               OK
             </button>
           </div>

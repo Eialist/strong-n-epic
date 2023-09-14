@@ -27,17 +27,20 @@ const Header = ({ btnText }: NavProps) => {
           alignItems: "center",
           justifyContent: "space-evenly",
           marginTop: "1em",
-        }}
-      >
-        <img alt="img" src={gym} style={{ width: "60px", height: "60px" }}></img>
+        }}>
+        <img
+          alt="img"
+          src={gym}
+          style={{ width: "60px", height: "60px" }}></img>
         {/* <h1 style={{}}></h1> */}
         <input
           placeholder="Search..."
           className="rounded-pill px-2 border-0 border-gray"
-          style={{ height: "25px", width: "300px" }}
-        ></input>
+          style={{ height: "25px", width: "300px" }}></input>
         <nav>
-          <ul className="list-unstyled d-flex gap-3" style={{ fontSize: ".8em", marginTop: "1em"}}>
+          <ul
+            className="list-unstyled d-flex gap-3"
+            style={{ fontSize: ".8em", marginTop: "1em" }}>
             <li>Home</li>
             <li>Services</li>
             <li>About us</li>

@@ -6,7 +6,7 @@ import { Activity } from "../types/Activity";
 
 const AdminActivityPage: React.FC = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
-  const [showPopUp, setShowPopUp] = useState(false); // State for POP UP visibility
+  const [showPopUp, setShowPopUp] = useState<boolean>(false); // State for POP UP visibility
   const [activityToDelete, setActivityToDelete] = useState<number | null>(null); // State to store the ID of the activity to delete
 
   useEffect(() => {
@@ -68,7 +68,9 @@ const AdminActivityPage: React.FC = () => {
                     <td>{activity.coach}</td>
                     <td>
                       <button className="btn btn-primary me-4">Edit</button>
-                      <button className="btn btn-danger" onClick={() => openPopUp(activity.id)}>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => openPopUp(activity.id)}>
                         Remove
                       </button>
                     </td>

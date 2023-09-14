@@ -55,9 +55,8 @@ const LoginPage: React.FC = () => {
           margin: "auto",
           width: "50%",
           textAlign: "center",
-          height: "62vh"
-        }}
-      >
+          height: "62vh",
+        }}>
         <LoginForm onLogin={handleLogin} />
       </div>
       <Footer />

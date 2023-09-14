@@ -7,7 +7,7 @@ import PopUpComponent from "../components/abstracts/PopUpComponent";
 
 const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
-  const [showPopUp, setShowPopUp] = useState(false);
+  const [showPopUp, setShowPopUp] = useState<boolean>(false);
 
   // Handle register logic here
   const handleRegister = async (username: string, password: string) => {
@@ -34,8 +34,7 @@ const RegisterPage: React.FC = () => {
           margin: "auto",
           width: "50%",
           textAlign: "center",
-        }}
-      >
+        }}>
         <RegisterForm onRegister={handleRegister} />
       </div>
       <Footer />

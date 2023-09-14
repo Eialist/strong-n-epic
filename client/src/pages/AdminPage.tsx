@@ -10,7 +10,7 @@ import PopUpComponent from "../components/abstracts/PopUpComponent";
 const AdminPage = () => {
   const navigate = useNavigate();
 
-  const [showPopUp, setShowPopUp] = useState(false);
+  const [showPopUp, setShowPopUp] = useState<boolean>(false);
 
   const handleAddActivity = async (activity: Activity) => {
     try {
@@ -33,28 +33,27 @@ const AdminPage = () => {
   return (
     <React.Fragment>
       <Header btnText={"Log Out"} />
-    <div className="container" style={{ height: "100vh"}}>
-            <div className="my-3">
-        <Link to="/admin/activity" className="btn btn-primary me-2">
-          Gym Activities
-        </Link>
-        <Link to="/admin/user" className="btn btn-primary">
-          Members
-        </Link>
+      <div className="container" style={{ height: "100vh" }}>
+        <div className="my-3">
+          <Link to="/admin/activity" className="btn btn-primary me-2">
+            Gym Activities
+          </Link>
+          <Link to="/admin/user" className="btn btn-primary">
+            Members
+          </Link>
+        </div>
+
+        <AddActivityComponent addActivity={handleAddActivity} />
+
+        {showPopUp && (
+          <PopUpComponent
+            insertText={"You have successfully added an activity!"}
+            onOkClick={() => navigate("/admin/activity")}
+            onCancelClick={closePopUp}
+          />
+        )}
       </div>
-
-      <AddActivityComponent addActivity={handleAddActivity} />
-      
-
-      {showPopUp && (
-        <PopUpComponent
-          insertText={"You have successfully added an activity!"}
-          onOkClick={() => navigate("/admin/activity")}
-          onCancelClick={closePopUp}
-        />
-      )}
-    </div>
-    <Footer />
+      <Footer />
     </React.Fragment>
   );
 };

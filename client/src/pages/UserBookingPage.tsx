@@ -6,8 +6,8 @@ import { useState, useEffect } from "react";
 import MyBookingsComponent from "../components/MyBookingsComponent";
 
 const UserBookingPage = () => {
-  const [showBookings, setShowBookings] = useState(false);
-  const [userId, setUserId] = useState(null); // Store user information here
+  const [showBookings, setShowBookings] = useState<boolean>(false);
+  const [userId, setUserId] = useState<number | null>(null); // Store user information here
 
   //Simulate fetching user data from local storage or wherever it's stored
   useEffect(() => {
@@ -16,21 +16,29 @@ const UserBookingPage = () => {
       setUserId(JSON.parse(userData));
     }
   }, []);
- 
+
   const handleBookingClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
-    setShowBookings(!showBookings); // Toggle the showBookings state
+    setShowBookings(!showBookings); 
+    console.log(userId)// Toggle the showBookings state
   };
   return (
     <div>
       <Header btnText={"Log Out"} />
-      <div style={{ height: "73vh"}}>
-      <div className="container">
-        <div className="my-3 btn btn-primary me-2" onClick={handleBookingClick}>
-          My bookings
+      <div style={{ height: "73vh" }}>
+        <div className="container">
+          <div
+            className="my-3 btn btn-primary me-2"
+            onClick={handleBookingClick}>
+            My bookings
+          </div>
+          {showBookings && userId && (
+            <MyBookingsComponent
+              userId={userId}
+              closeClick={() => setShowBookings(false)}
+            />
+          )}
         </div>
-        {showBookings && userId && <MyBookingsComponent userId={userId} closeClick={() => setShowBookings(false)}/>}
-      </div>
-      <CalenderComponent />
+        <CalenderComponent />
       </div>
       <Footer />
     </div>

@@ -11,7 +11,14 @@ type CardProps = {
   day: string;
 };
 
-const Card = ({ activityId, title, time, description, coach, day }: CardProps) => {
+const Card: React.FC<CardProps> = ({
+  activityId,
+  title,
+  time,
+  description,
+  coach,
+  day,
+}) => {
   const [user, setUser] = useState<User | null>(null);
   const [showPopup, setShowPopup] = useState<boolean>(false);
   const [isBooked, setIsBooked] = useState<boolean>(false);
@@ -22,9 +29,11 @@ const Card = ({ activityId, title, time, description, coach, day }: CardProps) =
       // Fetch the complete user object based on the user ID
       fetch(`/api/user/${userId}`)
         .then((res) => res.json())
-        .then((json) => {setUser(json.user); 
-          if(user){
-          setIsBooked(json.user.activities.includes(activityId))};
+        .then((json) => {
+          setUser(json.user);
+          if (user) {
+            setIsBooked(json.user.activities.includes(activityId));
+          }
         })
         .catch((err) => console.error(err));
     }
@@ -70,15 +79,16 @@ const Card = ({ activityId, title, time, description, coach, day }: CardProps) =
 
   return (
     <div>
-      <div className="card" style={{ width: "9rem", margin: ".2em .2em -0.2em .2em" }}>
+      <div
+        className="card"
+        style={{ width: "9rem", margin: ".2em .2em -0.2em .2em" }}>
         <div className="card-body">
           <h6 className="card-title">{title}</h6>
           <p className="card-text">{time}</p>
           <button
             className={`btn ${isBooked ? "btn-secondary" : "btn-primary"}`}
             onClick={handleClick}
-            disabled={isBooked}
-          >
+            disabled={isBooked}>
             {isBooked ? "Booked" : "Book"}
           </button>
         </div>
