@@ -57,8 +57,10 @@ createServer({
 
         this.delete("/user/:userId/bookings/:activityId", (schema, request) => {
             const activityId = request.params.activityId;
-            return schema.activities.find(activityId).destroy();
-
+            const userId = request.params.userId;
+            console.log(schema.activities);
+            const user = schema.users.find(userId);
+            return schema.activity.find(activityId).destroy();
         });
 
         this.get("/user/:id/bookings", (schema, request) => {

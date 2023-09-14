@@ -23,6 +23,7 @@ const UserBookingPage = () => {
   return (
     <div>
       <Header btnText={"Log Out"} />
+      <div style={{ height: "73vh"}}>
       <div className="container">
         <div className="my-3 btn btn-primary me-2" onClick={handleBookingClick}>
           My bookings
@@ -30,6 +31,7 @@ const UserBookingPage = () => {
         {showBookings && userId && <MyBookingsComponent userId={userId} closeClick={() => setShowBookings(false)}/>}
       </div>
       <CalenderComponent />
+      </div>
       <Footer />
     </div>
   );
