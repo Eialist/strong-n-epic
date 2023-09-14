@@ -11,7 +11,7 @@ const GridCard = ({ dayText, dayString }: DayProps) => {
   const [sessions, setSessions] = useState<Activity[]>([]);
 
   useEffect(() => {
-    fetch("api/admin/activities")
+    fetch("api/activities")
       .then((data) => data.json())
       .then((json) => setSessions(json.activities))
       .catch((error) => {

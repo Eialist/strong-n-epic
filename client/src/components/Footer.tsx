@@ -10,7 +10,7 @@ const Footer = () => {
       <footer
         className="footer-container"
         style={{
-          position: "fixed",
+          position: "sticky",
           bottom: 0,
           right: 0,
           left: 0,

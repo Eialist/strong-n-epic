@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import AddActivityComponent from "../components/AddActivityComponent";
 import { Activity } from "../types/Activity";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import React, { useState } from "react";
 import PopUpComponent from "../components/abstracts/PopUpComponent";
 
 const AdminPage = () => {
@@ -31,10 +31,10 @@ const AdminPage = () => {
     setShowPopUp(false);
   };
   return (
-    <div className="container">
+    <React.Fragment>
       <Header btnText={"Log Out"} />
-
-      <div className="my-3">
+    <div className="container" style={{ height: "100vh"}}>
+            <div className="my-3">
         <Link to="/admin/activity" className="btn btn-primary me-2">
           Gym Activities
         </Link>
@@ -44,7 +44,7 @@ const AdminPage = () => {
       </div>
 
       <AddActivityComponent addActivity={handleAddActivity} />
-      <Footer />
+      
 
       {showPopUp && (
         <PopUpComponent
@@ -54,6 +54,8 @@ const AdminPage = () => {
         />
       )}
     </div>
+    <Footer />
+    </React.Fragment>
   );
 };
 

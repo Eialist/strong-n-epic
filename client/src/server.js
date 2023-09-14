@@ -15,7 +15,7 @@ createServer({
             return schema.users.all();
         });
 
-        this.get("/admin/activities", (schema, request) => {
+        this.get("/activities", (schema, request) => {
             return schema.activities.all();
         });
 
@@ -56,16 +56,9 @@ createServer({
         });
 
         this.delete("/user/:userId/bookings/:activityId", (schema, request) => {
-            const userId = request.params.userId;
             const activityId = request.params.activityId;
+            return schema.activities.find(activityId).destroy();
 
-            const user = schema.users.find(userId);
-
-            const activityIndex = user.activities.findIndex((activity) => activity.id === activityId);
-
-            user.activities.splice(activityIndex, 1);
-
-            return new Response(204); // deleted success code
         });
 
         this.get("/user/:id/bookings", (schema, request) => {

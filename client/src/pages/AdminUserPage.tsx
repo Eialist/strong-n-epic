@@ -16,7 +16,7 @@ const AdminUserPage = () => {
   return (
     <div>
       <Header btnText={"Log Out"} />
-      <div className="container mt-4">
+      <div className="container mt-4" style={{ height: "100vh"}}>
         {users ? (
           <div>
             <h3 className="mb-4">All Members</h3>

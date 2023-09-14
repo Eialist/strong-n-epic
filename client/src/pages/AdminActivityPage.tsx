@@ -18,7 +18,7 @@ const AdminActivityPage: React.FC = () => {
 
   const deleteActivity = async (id: number) => {
     try {
-      await fetch(`/api/admin/activities/${id}`, { method: "DELETE" });
+      await fetch(`/api/activities/${id}`, { method: "DELETE" });
       setActivities(activities.filter((act) => act.id !== id));
       setShowPopUp(false); // Close the  pop up after deletion
     } catch (err) {
